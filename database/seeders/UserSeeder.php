@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Michael Hutchings',
                 'email' => 'mhutchings0416@gmail.com',
+                'avatar' => null,
                 'email_verified_at' => null,
                 'password' => bcrypt('Mikeyey121'),
                 'created_at' => Carbon::now(),
