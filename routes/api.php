@@ -20,11 +20,10 @@ Route::middleware('auth:sanctum')->group(function() {
         Route::post('user/send_verification_email','sendVerificationEmail');
         Route::post('user/change_email', 'changeEmail');
     });
+    Route::resource('projects', ProjectController::class);
+    Route::controller(ProjectController::class)->group(function(){
+        Route::get('/project-managers', 'getProjectManagers');
+        Route::delete('/projects/{id}/image', 'removeProjectImage');
+    });
 });
 
-Route::get('/projects', [ProjectController::class, 'index']);
-Route::get('/project-managers', [ProjectController::class, 'getProjectManagers']);
-Route::post('/projects', [ProjectController::class, 'store']);
-Route::put('/projects/{id}', [ProjectController::class, 'update']);
-Route::delete('/projects/{id}', [ProjectController::class, 'destroy']);
-Route::delete('/projects/{id}/image', [ProjectController::class, 'removeProjectImage']);
