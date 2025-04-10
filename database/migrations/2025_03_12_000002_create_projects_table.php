@@ -22,6 +22,11 @@ return new class extends Migration
                   ->references('managerId')
                   ->on('project_managers')
                   ->onDelete('cascade'); // If manager is deleted, delete their projects
+
+            $table->foreign('genreId')
+                  ->references('genreId')
+                  ->on('genres')
+                  ->onDelete('cascade'); // If genre is deleted, delete their projects
         });
     }
 

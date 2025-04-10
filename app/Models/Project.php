@@ -13,11 +13,17 @@ class Project extends Model
         'projectStartDate',
         'projectBudget',
         'projectFile',
-        'managerId'
+        'managerId',
+        'genreId'
     ];
 
     public function projectManager()
     {
         return $this->belongsTo(ProjectManager::class, 'managerId', 'managerId');
+    }
+
+    public function genre()
+    {
+        return $this->belongsTo(Genre::class, 'genreId', 'genreId');
     }
 } 

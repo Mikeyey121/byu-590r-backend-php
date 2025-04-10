@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::controller(ProjectController::class)->group(function(){
         Route::get('/project-managers', 'getProjectManagers');
         Route::delete('/projects/{id}/image', 'removeProjectImage');
+        Route::get('/genres', 'getGenres');
     });
 });
 

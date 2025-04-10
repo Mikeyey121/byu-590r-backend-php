@@ -24,6 +24,13 @@ class ProjectController extends BaseController
         return $this->sendResponse($managers, 'Project managers retrieved successfully');
     }
 
+    public function getGenres()
+    {
+        $genres = Genre::all();
+        \Log::info('Genres:', $genres->toArray());
+        return $this->sendResponse($genres, 'Genres retrieved successfully');
+    }
+
     public function store(Request $request)
     {
         try {
@@ -93,6 +100,7 @@ class ProjectController extends BaseController
                 'projectStartDate' => $request->projectStartDate,
                 'projectBudget' => $request->projectBudget,
                 'managerId' => $request->managerId,
+                'genreId' => $request->genreId,
                 'projectFile' => $url
             ]);
             
@@ -145,6 +153,10 @@ class ProjectController extends BaseController
             
             if ($request->has('managerId')) {
                 $project->managerId = $request->managerId;
+            }
+
+            if ($request->has('genreId')) {
+                $project->genreId = $request->genreId;
             }
             
             // Handle file upload if a new file is provided
