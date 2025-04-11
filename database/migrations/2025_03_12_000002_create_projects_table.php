@@ -15,6 +15,7 @@ return new class extends Migration
             $table->decimal('projectBudget', 10, 2); // Allows for large numbers with 2 decimal places
             $table->string('projectFile')->nullable(); // Making it nullable in case file isn't uploaded immediately
             $table->unsignedBigInteger('managerId');
+            $table->unsignedBigInteger('genreId');
             $table->timestamps();
 
             // Foreign key constraint
